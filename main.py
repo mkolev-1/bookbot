@@ -47,6 +47,10 @@ def main():
         file_contents = f.read()
         sorted_dictionary = dict(sorted(count_characters(file_contents).items(), key = lambda item: item[1], reverse = True))
         sorted_character_list = turning_letter_dictionaries_to_lists(sorted_dictionary)
-        print(sorted_character_list)
+        print(f"--- Begin report of books/frankenstein.txt ---\n{count_number_of_words(file_contents)} words found in the document\n")
+        for dicti in sorted_character_list:
+            for key in dicti:
+                print(f"The {key} character was found {dicti[key]} times")
+        print("--- End report ---")
 if __name__ == "__main__":
     main()
