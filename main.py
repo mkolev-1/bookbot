@@ -36,11 +36,17 @@ def turning_letter_dictionaries_to_lists(mydictionary):
     except Exception:
         error = "Not a dicionary"
         return error
+    
+
+    except Exception:
+        error = "Not a dicionary"
+        return error
 
 def main():
     with open("books/frankenstein.txt") as f:
         file_contents = f.read()
-        character_list = turning_letter_dictionaries_to_lists(count_characters(file_contents))
-        print(character_list)
+        sorted_dictionary = dict(sorted(count_characters(file_contents).items(), key = lambda item: item[1], reverse = True))
+        sorted_character_list = turning_letter_dictionaries_to_lists(sorted_dictionary)
+        print(sorted_character_list)
 if __name__ == "__main__":
     main()
