@@ -10,11 +10,24 @@ def count_number_of_words(mystring):
          error = "Not a string"
          return error
 
+def count_characters(mystring):
+    try:
+        lowered_mystring = mystring.lower()
+        character_dict = {}
+        for character  in lowered_mystring:
+            if character not in character_dict:
+                character_dict[character] = 1
+            else:
+                character_dict[character] += 1
+        return character_dict
+    except Exception:
+         error = "Not a string"
+         return error
 
 def main():
     with open("books/frankenstein.txt") as f:
         file_contents = f.read()
-        test_count_words = "Project Gutenberg-tm eBooks are often"
-        print(count_number_of_words(file_contents))
+        test_count_char = "Projectttt"
+        print(count_characters(file_contents))
 if __name__ == "__main__":
     main()
