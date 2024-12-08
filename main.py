@@ -24,10 +24,23 @@ def count_characters(mystring):
          error = "Not a string"
          return error
 
+def turning_letter_dictionaries_to_lists(mydictionary):
+    try:
+        dictioanries_list = []
+        for key in mydictionary:
+            if key.isalpha() == True:
+                temp_dictionary = {}
+                temp_dictionary[key] = mydictionary[key]
+                dictioanries_list.append(temp_dictionary)
+        return dictioanries_list
+    except Exception:
+        error = "Not a dicionary"
+        return error
+
 def main():
     with open("books/frankenstein.txt") as f:
         file_contents = f.read()
-        test_count_char = "Projectttt"
-        print(count_characters(file_contents))
+        character_list = turning_letter_dictionaries_to_lists(count_characters(file_contents))
+        print(character_list)
 if __name__ == "__main__":
     main()
